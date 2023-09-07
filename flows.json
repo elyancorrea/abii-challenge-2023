@@ -1,0 +1,951 @@
+[
+    {
+        "id": "6cf8b5f921d06db5",
+        "type": "tab",
+        "label": "Cronômetro Refatorado",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "afcd82eb9ce7d3ff",
+        "type": "tab",
+        "label": "Drone",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f928304933ad7191",
+        "type": "junction",
+        "z": "afcd82eb9ce7d3ff",
+        "x": 540,
+        "y": 220,
+        "wires": [
+            [
+                "df02dd3fc1790913"
+            ]
+        ]
+    },
+    {
+        "id": "ea4a7082.b61d18",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": 4,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "2ed3cfea03e18701",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-custom",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#ffffff",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#ffffff",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "reset": false
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#4B7930",
+                    "value": "#ffffff",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#ffffff",
+                    "edited": true
+                },
+                "widget-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "e9a77a1d.3f94a8",
+        "type": "ui_group",
+        "name": "Tempo de prova:",
+        "tab": "3f742b3e.2f4d86",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "dcc8f3472d07a2c5",
+        "type": "ui_group",
+        "name": "Marcadores:",
+        "tab": "3f742b3e.2f4d86",
+        "order": 2,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3f742b3e.2f4d86",
+        "type": "ui_tab",
+        "name": "ABII CHALLENGE 2023",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "92109e0a.88d96",
+        "type": "hourglass",
+        "z": "6cf8b5f921d06db5",
+        "name": "",
+        "humanizeLocale": "",
+        "x": 660,
+        "y": 80,
+        "wires": [
+            [
+                "595bc9932b8ae23d"
+            ]
+        ]
+    },
+    {
+        "id": "5a0a72af.5c5fc4",
+        "type": "change",
+        "z": "6cf8b5f921d06db5",
+        "name": "{command:'reset'}",
+        "rules": [
+            {
+                "t": "set",
+                "p": "command",
+                "pt": "msg",
+                "to": "reset",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 180,
+        "wires": [
+            [
+                "92109e0a.88d96"
+            ]
+        ]
+    },
+    {
+        "id": "cfff0e2d.ada0e8",
+        "type": "change",
+        "z": "6cf8b5f921d06db5",
+        "name": "{command:'start'}",
+        "rules": [
+            {
+                "t": "set",
+                "p": "command",
+                "pt": "msg",
+                "to": "start",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 411,
+        "y": 80,
+        "wires": [
+            [
+                "92109e0a.88d96"
+            ]
+        ]
+    },
+    {
+        "id": "a0a2d80e.88f7d",
+        "type": "change",
+        "z": "6cf8b5f921d06db5",
+        "name": "{command:'stop'}",
+        "rules": [
+            {
+                "t": "set",
+                "p": "command",
+                "pt": "msg",
+                "to": "stop",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 411,
+        "y": 140,
+        "wires": [
+            [
+                "92109e0a.88d96"
+            ]
+        ]
+    },
+    {
+        "id": "6384eb1d.90bca4",
+        "type": "inject",
+        "z": "6cf8b5f921d06db5",
+        "name": "Atualiza home",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "0.01",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "x": 160,
+        "y": 20,
+        "wires": [
+            [
+                "5bb3a7b5.cb8b9"
+            ]
+        ]
+    },
+    {
+        "id": "5bb3a7b5.cb8b9",
+        "type": "change",
+        "z": "6cf8b5f921d06db5",
+        "name": "{command:'status'}",
+        "rules": [
+            {
+                "t": "set",
+                "p": "command",
+                "pt": "msg",
+                "to": "status",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 411,
+        "y": 20,
+        "wires": [
+            [
+                "92109e0a.88d96"
+            ]
+        ]
+    },
+    {
+        "id": "595bc9932b8ae23d",
+        "type": "function",
+        "z": "6cf8b5f921d06db5",
+        "name": "Converte data e hora",
+        "func": "function formatTime(duration) {\n    var horas = Math.floor(duration / 3600000);\n    var minutos = Math.floor((duration % 3600000) / 60000);\n    var segundos = Math.floor((duration % 60000) / 1000);\n    var milissegundos = duration % 1000;\n    return `${horas.toString().padStart(2, '0')}:${minutos.toString().padStart(2, '0')}:${segundos.toString().padStart(2, '0')}.${milissegundos.toString().padStart(3, '0')}`;\n}\n\nmsg.payload = formatTime(msg.elapsed.millis)\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 880,
+        "y": 80,
+        "wires": [
+            [
+                "586a16949de4b67a",
+                "9c1b126bec612ee0"
+            ]
+        ]
+    },
+    {
+        "id": "2779303c80f3b0a6",
+        "type": "ui_template",
+        "z": "6cf8b5f921d06db5",
+        "group": "e9a77a1d.3f94a8",
+        "name": "CSS",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n@import url('https://fonts.cdnfonts.com/css/lcd');    \n    * {\n        font-size: 40px;\n        background: none !important;\n    }\n    root,\n    a,\n    button,\n    p {\n    }\n    p.value {\n        font-size: 80px;\n        font-family: 'LCD', sans-serif;\n    }\n    div {\n        -webkit-user-select: none !important;\n    }\n    body {\n        background: transparent !important;\n        background: -webkit-linear-gradient(55deg,\n                #6c66ac 0%,\n                #6c66ac 100%\n            ) !important;\n\n        -webkit-touch-callout: none !important;\n        color: #ffffff !important;\n        padding-top: 5px !important;\n    }\n\n    body.nr-dashboard-theme md-toolbar,\n    body.nr-dashboard-theme md-content md-card {}\n\n    ui-card-panel {\n        background-color: rgba(108, 102, 172, 0.90) !important;\n        border: none !important;\n        border-radius: 10px !important;\n    }\n\n    ui-card-panel>div.nr-dashboard-cardpanel>div>md-card {\n        background: none !important;\n    }\n\n    ui-card-panel>div.nr-dashboard-cardpanel button {\n        /*background: none !important;*/\n    }\n    body.nr-dashboard-theme md-toolbar .md-toolbar-tools{\n        filter: invert(0%);\n    }\n    md-toolbar {\n        background: none !important;\n    }\n\n    md-sidenav {\nbackground: rgb(108,102,172);\nbackground: linear-gradient(19deg, rgba(108,102,172,1) 0%, rgba(147,141,230,1) 56%);    }\n\n    md-card.nr-dashboard-button * {\n        box-shadow: none !important;\n    }\n\n    md-card.nr-dashboard-template * {\n        background: none !important;\n    }\n\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "global",
+        "className": "",
+        "x": 650,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "58a8127b96c61db2",
+        "type": "ui_template",
+        "z": "6cf8b5f921d06db5",
+        "group": "dcc8f3472d07a2c5",
+        "name": "Tabela",
+        "order": 1,
+        "width": 12,
+        "height": 10,
+        "format": "<br>\n    <table border=\"0\" cellpadding=\"10\" class=\"fade-in-table\" ng-class=\"{ 'show': tableUpdated }\">\n        <tr ng-repeat=\"row in [0,1,2,3,4]\">\n            <td style=\"color: {{msg.payload[row*5].cor}}; text-align: center;\">{{msg.payload[row*5].numero}}</td>\n            <td style=\"color: {{msg.payload[row*5+1].cor}}; text-align: center;\">{{msg.payload[row*5+1].numero}}</td>\n            <td style=\"color: {{msg.payload[row*5+2].cor}}; text-align: center;\">{{msg.payload[row*5+2].numero}}</td>\n            <td style=\"color: {{msg.payload[row*5+3].cor}}; text-align: center;\">{{msg.payload[row*5+3].numero}}</td>\n            <td style=\"color: {{msg.payload[row*5+4].cor}}; text-align: center;\">{{msg.payload[row*5+4].numero}}</td>\n        </tr>\n    </table>\n",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 1170,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "462f2764d52c87d4",
+        "type": "function",
+        "z": "6cf8b5f921d06db5",
+        "name": "Cria tabela",
+        "func": "// Verifique se a variável de contexto 'cartela' já existe\nvar cartela = [];\n\nfor (var i = 1; i <= 24; i++) {\n    cartela.push({\n        numero: i,\n        cor: 'lightsteelblue'\n    });\n}\n\n// Salve a cartela na variável de contexto\nglobal.set('cartela', cartela);\n\n// Retorne a cartela no payload\nmsg.payload = cartela;\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 260,
+        "wires": [
+            [
+                "58a8127b96c61db2"
+            ]
+        ]
+    },
+    {
+        "id": "5bb210a709cfca71",
+        "type": "mqtt in",
+        "z": "6cf8b5f921d06db5",
+        "name": "",
+        "topic": "IDAtual",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "ea4a7082.b61d18",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "ce05c72a5827499f",
+                "4be629e204a858ec",
+                "f63fc58b6d6cb834"
+            ]
+        ]
+    },
+    {
+        "id": "bb7189a12364abb5",
+        "type": "inject",
+        "z": "6cf8b5f921d06db5",
+        "name": "Zerar tudo",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "462f2764d52c87d4",
+                "9b00db65f51c85a2",
+                "5a0a72af.5c5fc4",
+                "a0a2d80e.88f7d"
+            ]
+        ]
+    },
+    {
+        "id": "ce05c72a5827499f",
+        "type": "function",
+        "z": "6cf8b5f921d06db5",
+        "name": "Altera cor da coordenada para branco",
+        "func": "// Recebe o número sorteado via input msg.payload\nvar numeroSorteado = parseInt(msg.payload);\n\n// Obtém o array da cartela do contexto\nvar cartela = global.get(\"cartela\");\n\n// Verifica se a cartela existe e se o número sorteado está dentro do intervalo\nif (cartela && numeroSorteado >= 1 && numeroSorteado <= 25) {\n    // Encontra o índice do número sorteado na cartela\n    var indice = cartela.findIndex(function (item) {\n        return item.numero === numeroSorteado;\n    });\n\n    // Se o número foi encontrado na cartela, muda a cor para \"green\"\n    if (indice !== -1) {\n        cartela[indice].cor = \"white\";\n        cartela[indice].numero = cartela[indice].numero + \"🚩\";\n    }\n\n    // Atualiza a cartela no contexto\n    global.set(\"cartela\", cartela);\n\n    // Retorna a cartela atualizada\n    msg.payload = cartela;\n} else {\n    // Se o número sorteado estiver fora do intervalo, retorna um erro\n    msg.payload = \"Número sorteado fora do intervalo permitido.\";\n    msg.error = true;\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 320,
+        "wires": [
+            [
+                "58a8127b96c61db2"
+            ]
+        ]
+    },
+    {
+        "id": "9b00db65f51c85a2",
+        "type": "function",
+        "z": "6cf8b5f921d06db5",
+        "name": "Cria destinos",
+        "func": "// Crie um array de objetos com IDs e um indicador de envio\nvar ids = [\n    { id: 3, enviado: false, next: true },\n    { id: 12, enviado: false, next: false },\n    { id: 14, enviado: false, next: false },\n    { id: \"[22,23,24]\", enviado: false, next: false }\n];\n\n// Salve o array na variável de contexto\nglobal.set('listaIDs', ids);\nglobal.set('isLastId', false);\nglobal.set(\"isRunning\", false);\n\n\n// Retorna a mensagem de confirmação\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 390,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4be629e204a858ec",
+        "type": "function",
+        "z": "6cf8b5f921d06db5",
+        "name": "Envia coordenada",
+        "func": "var isLastId = global.get(\"isLastId\")\n// Obtenha a mensagem recebida\nvar mensagemRecebida = msg.payload;\n\n// Obtenha a lista de IDs da variável de contexto\nvar listaIDs = global.get('listaIDs');\n\n// Encontre o ID com \"next\" igual a true\nvar proximoDestino = listaIDs.find(destino => destino.next === true);\nif(mensagemRecebida == 1){\n    global.set(\"isRunning\", true)\n}\nvar isRunning = global.get(\"isRunning\")\n\nif (proximoDestino && !isLastId && isRunning) {\n    // Verifique se a mensagem recebida é igual ao ID atual\n    if (mensagemRecebida === proximoDestino.id) {\n        // Altere o atributo \"next\" para o próximo da lista\n        proximoDestino.next = false;\n        var indiceProximo = listaIDs.indexOf(proximoDestino);\n        if (indiceProximo < listaIDs.length - 1) {\n            listaIDs[indiceProximo + 1].next = true;\n\n            // Envie o próximo destino cujo \"next\" seja true\n            global.set(\"destino\", listaIDs[indiceProximo + 1].id)\n\n            node.send({ payload: listaIDs[indiceProximo + 1].id });\n        }\n    } else {\n        // Se a mensagem não corresponde ao destino atual, envie o destino atual\n        global.set(\"destino\", proximoDestino.id)\n        node.send({ payload: proximoDestino.id });\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 410,
+        "y": 380,
+        "wires": [
+            [
+                "7b3404b88c573ff9",
+                "f964e3d47f6016d2"
+            ]
+        ]
+    },
+    {
+        "id": "9d48dcb81046dfac",
+        "type": "function",
+        "z": "6cf8b5f921d06db5",
+        "name": "Altera cor da coordenada para verde.",
+        "func": "// Recebe o número sorteado via input msg.payload\nvar numeroSorteado = msg.payload;\n\n// Obtém o array da cartela do contexto\nvar cartela = global.get(\"cartela\");\n\n// Verifica se a cartela existe e se o número sorteado está dentro do intervalo\nif (cartela && isValido(numeroSorteado)) {\n    // Verifica se o número sorteado é um array\n    if (Array.isArray(numeroSorteado)) {\n        // Se for um array, percorra os números e execute o código para cada um\n        for (var i = 0; i < numeroSorteado.length; i++) {\n            var numero = parseInt(numeroSorteado[i]);\n            executarCodigoParaNumero(numero, cartela);\n        }\n    } else {\n        // Se for um único número, execute o código para ele\n        var numero = parseInt(numeroSorteado);\n        executarCodigoParaNumero(numero, cartela);\n    }\n\n    // Atualiza a cartela no contexto\n    global.set(\"cartela\", cartela);\n\n    // Retorna a cartela atualizada\n    msg.payload = cartela;\n} else {\n    // Se o número sorteado estiver fora do intervalo ou não for válido, retorna um erro\n    msg.payload = \"Número sorteado fora do intervalo permitido.\";\n    msg.error = true;\n}\n\nreturn msg;\n\n// Função para verificar se o número é válido (dentro do intervalo 1-25)\nfunction isValido(numero) {\n    if (Array.isArray(numero)) {\n        return numero.every(n => n >= 1 && n <= 25);\n    } else {\n        return numero >= 1 && numero <= 25;\n    }\n}\n\n// Função para executar o código para um número específico\nfunction executarCodigoParaNumero(numero, cartela) {\n    // Verifica se o número está dentro do intervalo da cartela\n    if (numero >= 1 && numero <= cartela.length) {\n        // Obtém o índice na cartela (considerando que a cartela começa em 1)\n        var indice = numero - 1;\n\n        // Atualiza o número na cartela\n        cartela[indice].numero = numero + \"📍\";\n        cartela[indice].cor = \"GreenYellow\";\n    }\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 870,
+        "y": 360,
+        "wires": [
+            [
+                "58a8127b96c61db2"
+            ]
+        ]
+    },
+    {
+        "id": "7dd86ab4598a2921",
+        "type": "function",
+        "z": "6cf8b5f921d06db5",
+        "name": "Verifica ID inicial",
+        "func": "if(msg.payload == 1){\n    return msg;\n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 200,
+        "y": 80,
+        "wires": [
+            [
+                "cfff0e2d.ada0e8"
+            ]
+        ]
+    },
+    {
+        "id": "494fd29282d3886f",
+        "type": "link out",
+        "z": "6cf8b5f921d06db5",
+        "name": "link out 2",
+        "mode": "link",
+        "links": [
+            "c4945a2aa299b056"
+        ],
+        "x": 355,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "586a16949de4b67a",
+        "type": "ui_text",
+        "z": "6cf8b5f921d06db5",
+        "group": "e9a77a1d.3f94a8",
+        "order": 1,
+        "width": 12,
+        "height": 8,
+        "name": "Tempo",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "clock",
+        "style": true,
+        "font": "Verdana,Verdana,Geneva,sans-serif",
+        "fontSize": "70",
+        "color": "#ffffff",
+        "x": 1110,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "9c1b126bec612ee0",
+        "type": "mqtt out",
+        "z": "6cf8b5f921d06db5",
+        "name": "",
+        "topic": "TempoDecorrido",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ea4a7082.b61d18",
+        "x": 1140,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f964e3d47f6016d2",
+        "type": "mqtt out",
+        "z": "6cf8b5f921d06db5",
+        "name": "",
+        "topic": "ProximoID",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ea4a7082.b61d18",
+        "x": 650,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7b3404b88c573ff9",
+        "type": "json",
+        "z": "6cf8b5f921d06db5",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 630,
+        "y": 360,
+        "wires": [
+            [
+                "9d48dcb81046dfac"
+            ]
+        ]
+    },
+    {
+        "id": "90a4d8c4b08008a5",
+        "type": "mqtt in",
+        "z": "6cf8b5f921d06db5",
+        "name": "",
+        "topic": "StopCronometro",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ea4a7082.b61d18",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "a0a2d80e.88f7d"
+            ]
+        ]
+    },
+    {
+        "id": "f63fc58b6d6cb834",
+        "type": "link out",
+        "z": "6cf8b5f921d06db5",
+        "name": "link out 3",
+        "mode": "link",
+        "links": [
+            "39b05ba9430347b9"
+        ],
+        "x": 225,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "39b05ba9430347b9",
+        "type": "link in",
+        "z": "6cf8b5f921d06db5",
+        "name": "link in 1",
+        "links": [
+            "f63fc58b6d6cb834"
+        ],
+        "x": 65,
+        "y": 80,
+        "wires": [
+            [
+                "7dd86ab4598a2921"
+            ]
+        ]
+    },
+    {
+        "id": "df02dd3fc1790913",
+        "type": "mqtt out",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "",
+        "topic": "IDAtual",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ea4a7082.b61d18",
+        "x": 660,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "40f4c2d2391a6528",
+        "type": "mqtt in",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "",
+        "topic": "ProximoID",
+        "qos": "2",
+        "datatype": "utf8",
+        "broker": "ea4a7082.b61d18",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 480,
+        "wires": [
+            [
+                "35b150fec9060c0a"
+            ]
+        ]
+    },
+    {
+        "id": "35b150fec9060c0a",
+        "type": "debug",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "1bda8b1252f33316",
+        "type": "mqtt out",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "",
+        "topic": "StopCronometro",
+        "qos": "",
+        "retain": "false",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ea4a7082.b61d18",
+        "x": 580,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a5edb678331fe2be",
+        "type": "inject",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "Pousar",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "1bda8b1252f33316"
+            ]
+        ]
+    },
+    {
+        "id": "3c0b56fafda307a9",
+        "type": "inject",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "Envia ID 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "num",
+        "x": 140,
+        "y": 220,
+        "wires": [
+            [
+                "f928304933ad7191"
+            ]
+        ]
+    },
+    {
+        "id": "afdd045615f9e077",
+        "type": "mqtt in",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "",
+        "topic": "TempoDecorrido",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "ea4a7082.b61d18",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 540,
+        "wires": [
+            [
+                "cacce66f3ce9d921"
+            ]
+        ]
+    },
+    {
+        "id": "cacce66f3ce9d921",
+        "type": "debug",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "debug 10",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "c0eec57dee7c851f",
+        "type": "inject",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "Envia ID 3",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "num",
+        "x": 140,
+        "y": 260,
+        "wires": [
+            [
+                "f928304933ad7191"
+            ]
+        ]
+    },
+    {
+        "id": "6a2a78e69a71c732",
+        "type": "inject",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "Envia ID 12",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "12",
+        "payloadType": "num",
+        "x": 150,
+        "y": 300,
+        "wires": [
+            [
+                "f928304933ad7191"
+            ]
+        ]
+    },
+    {
+        "id": "f5a32eed78c234ba",
+        "type": "inject",
+        "z": "afcd82eb9ce7d3ff",
+        "name": "Envia ID 14",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "14",
+        "payloadType": "num",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "f928304933ad7191"
+            ]
+        ]
+    }
+]
